@@ -128,9 +128,9 @@
 * Get the recyclerview reference to second.kt file
 * Data 
 * Adapter Class
-        - onCreateViewHolder : set the row design of the view display to user
-        - onBindViewHolder   : bind the data into views 
-        - getItemCount       : return the list size
+    * onCreateViewHolder : set the row design of the view display to user
+    * onBindViewHolder   : bind the data into views 
+    * getItemCount       : return the list size
 * set this addapter class object to recyclerview
 * set the layout manager to recyclerview
 
@@ -138,11 +138,11 @@
 
 * Give the internet permission in manifest file
 * Getting Data from Internet 
-       * Here I use the meals api for get the data from internet
-       * By using coroutines concept I did the api integration
-       * Do the json parsing and set the data to lists
+    * Here I use the meals api for get the data from internet
+    * By using coroutines concept I did the api integration
+    * Do the json parsing and set the data to lists
 * Load and display the data
-       * Set the list into recyclerview
+    * Set the list into recyclerview
 
 # Layouts:
 > Layouts is a example for viewgroups. collection of views is knows as view group.Layouts contains collection of views
