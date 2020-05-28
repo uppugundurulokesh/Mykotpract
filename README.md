@@ -68,6 +68,88 @@
          binding.dname.text=n                         // dname  and ddes is the textview id
          binding.ddes.text=d
    
+# Coroutines:
+> Coroutines are the way to handle long-running tasks elegantly and efficiently. Kotlin coroutines let you convert callback-based code to sequential code.
+
+***Coroutines concept include my app***
+1. Add the coroutines dependancies in build.gradle(module app)
+    
+       //coroutines depend
+       implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5'
+       implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
+       
+2. Declare a one function in onCreate() in my second activity
+ 
+       onCreate(){
+            callCoroutines()
+       }
+3. Implement the callCoroutines() using below code:
+   
+       private fun callCoroutines() {
+        CoroutineScope(Dispatchers.IO).launch {
+            getrecepiData()
+        }
+        }
+        
+* Dispatcher: The dispatcher sends off coroutines to run on various threads. For example, Dispatcher.Main runs tasks on the main thread, and Dispatcher.IO offloads blocking I/O tasks to a shared pool of threads.
+
+* Scope: A coroutine's scope defines the context in which the coroutine runs.
+
+5. Implement the getrecepieData() for internet connect and get the json data
+
+       suspend fun getrecepiData() {
+
+        val url = URL(url)
+        val httpsURLConnection : HttpsURLConnection = url.openConnection() as HttpsURLConnection
+        val inputStream : InputStream = httpsURLConnection.inputStream
+        val text = inputStream.bufferedReader().use(BufferedReader::readText)
+        withContext(Dispatchers.Main){
+
+            val root=JSONObject(text);
+            val jarry=root.getJSONArray("categories")
+            for( i in 0..jarry.length()-1){
+
+                val po=jarry.getJSONObject(i);
+                -----
+                -----
+                // get the json data and set to list objects
+
+               }
+            }
+          }
+          
+# Recyclerview: 
+> Display the large amount of data in list format. By using recyclerview we can display the data into linear format,horizontal format, grid format and straged grid format.
+
+***Implement Reyclerview concept in my app***
+
+* Add the recyclerview dependencies
+* Add the recyclerview layout in xml file
+* Get the recyclerview reference to second.kt file
+* Data 
+* Adapter Class
+        - onCreateViewHolder : set the row design of the view display to user
+        - onBindViewHolder   : bind the data into views 
+        - getItemCount       : return the list size
+* set this addapter class object to recyclerview
+* set the layout manager to recyclerview
+
+# Connect to Internet:
+
+* Give the internet permission in manifest file
+* Getting Data from Internet 
+       * Here I use the meals api for get the data from internet
+       * By using coroutines concept I did the api integration
+       * Do the json parsing and set the data to lists
+* Load and display the data
+       * Set the list into recyclerview
+
+# Layouts:
+> Layouts is a example for viewgroups. collection of views is knows as view group.Layouts contains collection of views
+> My app contans Constraint layout,Linear Layout
+
+
+
 
   
    
